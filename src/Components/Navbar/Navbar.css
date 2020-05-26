@@ -23,7 +23,7 @@ a.nav-link {
     color: rgb(69, 223, 243);
 }
 
-NavLink.Link:hover {
+a.nav-link:hover {
     text-decoration: none;
     color: rgb(69, 223, 243);
 }
