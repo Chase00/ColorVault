@@ -34,6 +34,13 @@ a.nav-link a:visited {
 
 span.navbar-text, link {
     color: rgb(69, 223, 243);
+    list-style-type: none;
+}
+
+span.navbar-text:hover {
+    transition: 0.3s;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
 }
 
 button.navbar-toggler {
