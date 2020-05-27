@@ -31,7 +31,7 @@ function App() {
   return (
     <div>
       <Navbar clickLogout={clearToken}/>
-      <Auth />
+      <Auth updateToken={updateToken}/>
 
 
       <Footer />

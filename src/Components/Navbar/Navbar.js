@@ -25,7 +25,7 @@ const NavBar = (props) => {
 
   return (
     <div>
-      <Navbar expand="sm" color="dark" class="navbar bg-dark">
+      <Navbar expand="sm" class="navbar">
         <Router>
         <NavbarBrand href="/"><MdColorLens size={32}/> Color Vault</NavbarBrand>
         <NavbarToggler onClick={toggle} />
@@ -38,7 +38,7 @@ const NavBar = (props) => {
               <NavLink><Link to="/">About</Link></NavLink>
             </NavItem>
           </Nav>
-          <NavbarText><MdAccountCircle size={40}/> Sign Out</NavbarText>
+          <NavbarText onClick={props.clickLogout}><MdAccountCircle size={40}/> Sign Out</NavbarText>
         </Collapse>
         <Switch>
               <Route exact path="/home"></Route>
