@@ -17,7 +17,7 @@ const Register = (props) => {
                 email: email, 
                 username: username, 
                 password: password
-                
+
             }}),
             headers: new Headers({
                 'Content-Type': 'application/json'
@@ -35,15 +35,35 @@ const Register = (props) => {
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="email">Email</Label>
-                    <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email} />
+                    <Input
+                        name="email"
+                        type="email"
+                        placeholder="example@example.com"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)} />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="username">Username</Label>
-                    <Input onChange={(e) => setUsername(e.target.value)} name="username" value={username} />
+                    <Input 
+                        name="username"
+                        type="text"
+                        placeholder="Username"
+                        required
+                        minLength={3}
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)} />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} type="password" name="password" value={password}/>
+                    <Input 
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        required
+                        minLength={3}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)} />
                 </FormGroup>
                 <Button type="submit">Signup</Button>
             </Form>

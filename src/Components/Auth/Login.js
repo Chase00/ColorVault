@@ -15,7 +15,7 @@ const Login = (props) => {
             user: {
                 email: email,
                 password: password
-                
+
             }}),
             headers: new Headers({
                 'Content-Type': 'application/json'
@@ -33,11 +33,23 @@ const Login = (props) => {
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="email">Email</Label>
-                    <Input onChange={(e) => setEmail(e.target.value)} name="email" value={email} />
+                    <Input 
+                        name="email"
+                        type="email"
+                        placeholder="example@example.com"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)} />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
-                    <Input onChange={(e) => setPassword(e.target.value)} type="password" name="password" value={password}/>
+                    <Input 
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        required
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)} />
                 </FormGroup>
                 <Button type="submit">Login</Button>
             </Form>
