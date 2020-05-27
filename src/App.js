@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
 import Auth from './Components/Auth/Auth';
+import ColorsIndex from './Components/Colors/ColorsIndex';
 
 function App() {
 
@@ -24,14 +25,14 @@ function App() {
     setSessionToken('');
   }
 
-  // const protectedViews = () => {
-  //   return (sessionToken === localStorage.getItem('token') ? <WorkoutIndex token={sessionToken}/> : <Auth updateToken={updateToken}/>)
-  // }
+  const protectedViews = () => {
+    return (sessionToken === localStorage.getItem('token') ? <ColorsIndex token={sessionToken}/> : <Auth updateToken={updateToken}/>)
+  }
 
   return (
     <div>
       <Navbar clickLogout={clearToken}/>
-      <Auth updateToken={updateToken}/>
+      {protectedViews()}
 
 
       <Footer />
