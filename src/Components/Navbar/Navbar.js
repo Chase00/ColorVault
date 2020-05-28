@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MdColorLens, MdAccountCircle } from 'react-icons/md';
+import ColorIndex from '../Colors/ColorsIndex';
 import './Navbar.css';
 import {
   BrowserRouter as Router,
@@ -17,6 +18,7 @@ import {
   NavLink,
   NavbarText
 } from 'reactstrap';
+import ColorsIndex from '../Colors/ColorsIndex';
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +34,7 @@ const NavBar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink><Link to="/">Colors</Link></NavLink>
+              <NavLink><Link to="/colors">Colors</Link></NavLink>
             </NavItem>
             <NavItem>
               <NavLink><Link to="/">About</Link></NavLink>
@@ -42,7 +44,7 @@ const NavBar = (props) => {
         </Collapse>
         <Switch>
               <Route exact path="/home"></Route>
-              <Route exact path="/colors"></Route>
+              <Route exact path="/colors"><ColorsIndex /></Route>
               <Route exact path="/about"></Route>
       </Switch>
         </Router>

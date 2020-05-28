@@ -1,0 +1,38 @@
+.color-area {
+    width: 100%;
+    height: 200px;
+    background-color: lightskyblue;
+    border-radius: 10px 10px 0px 0px;
+}
+
+div.card-body {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    padding: 0;
+}
+
+MdModeEdit, MdDelete {
+    opacity: 40%;
+    filter: invert(100%);
+}
+
+div.card-title {
+    color: #616161;
+    font-size: 15px;
+    padding-top: 5%;
+    margin: 0;
+}
+
+p.card-text {
+    color: #272727;
+    letter-spacing: 3px;
+    font-size: 25px;
+    padding-bottom: 5%;
+}
+
+div.card {
+    margin: 10%;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}

@@ -1,4 +1,10 @@
 import React, {useState, useEffect} from 'react';
+import ColorCard from './ColorCard';
+import {
+    Row,
+    Col,
+    Container
+} from 'reactstrap';
 
 const ColorsIndex = (props) => {
     const [colors, setColors] = useState([]);
@@ -22,8 +28,29 @@ const ColorsIndex = (props) => {
     }, [])
 
     return(
-        <div>
-            User's colors will go here
+        <div class="card-deck">
+            <Container>
+                <Row>
+                    <Col sm="3">
+                        <ColorCard />
+                    </Col>
+                    <Col sm="3">
+                        <ColorCard />
+                    </Col>
+                    <Col sm="3">
+                        <ColorCard />
+                    </Col>
+                    <Col sm="3">
+                        <ColorCard />
+                    </Col>
+                    <Col sm="3">
+                        <ColorCard />
+                    </Col>
+                    <Col sm="3">
+                        <ColorCard />
+                    </Col>
+                </Row>
+            </Container>
         </div>
     )
 }
