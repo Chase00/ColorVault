@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import ColorCard from './ColorCard';
+import ColorsTable from './ColorsTable';
 import {
     Row,
     Col,
@@ -31,24 +32,7 @@ const ColorsIndex = (props) => {
         <div class="card-deck">
             <Container>
                 <Row>
-                    <Col sm="3">
-                        <ColorCard />
-                    </Col>
-                    <Col sm="3">
-                        <ColorCard />
-                    </Col>
-                    <Col sm="3">
-                        <ColorCard />
-                    </Col>
-                    <Col sm="3">
-                        <ColorCard />
-                    </Col>
-                    <Col sm="3">
-                        <ColorCard />
-                    </Col>
-                    <Col sm="3">
-                        <ColorCard />
-                    </Col>
+                        <ColorsTable colors={colors} fetchColors={fetchColors} token={props.token}/>
                 </Row>
             </Container>
         </div>

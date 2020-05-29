@@ -1,7 +1,6 @@
 .color-area {
     width: 100%;
     height: 200px;
-    background-color: lightskyblue;
     border-radius: 10px 10px 0px 0px;
 }
 
@@ -24,7 +23,7 @@ div.card-title {
 }
 
 p.card-text {
-    color: #272727;
+    color: #363636;
     letter-spacing: 3px;
     font-size: 25px;
     padding-bottom: 5%;
