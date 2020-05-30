@@ -31,8 +31,8 @@ const ColorCreate = (props) => {
     }
 
     return(
-        <Modal isOpen={true}>
-            <ModalHeader>Create a Color</ModalHeader>
+        <Modal isOpen={true} toggle={props.updateOff}>
+            <ModalHeader toggle={props.updateOff}>Create a Color</ModalHeader>
             <ModalBody>
             <Form onSubmit={handleSubmit}> 
                 <FormGroup>
