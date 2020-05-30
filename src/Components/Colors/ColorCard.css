@@ -10,11 +10,6 @@ div.card-body {
     padding: 0;
 }
 
-MdModeEdit, MdDelete {
-    opacity: 40%;
-    filter: invert(100%);
-}
-
 div.card-title {
     color: #616161;
     font-size: 15px;
@@ -35,3 +30,4 @@ div.card {
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
+

@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import ColorCard from './ColorCard';
 import ColorsTable from './ColorsTable';
+import ColorCreate from './ColorCreate';
 import {
     Row,
     Col,
-    Container
+    Container,
+    Button
 } from 'reactstrap';
+import './ColorModify.css'
 
 const ColorsIndex = (props) => {
     const [colors, setColors] = useState([]);
@@ -24,6 +26,16 @@ const ColorsIndex = (props) => {
         })
     }
 
+    const [updateActive, setUpdateActive] = useState(false);
+
+    const updateOn = () => {
+        setUpdateActive(true);
+    }
+
+    const updateOff = () => {
+        setUpdateActive(false);
+    }
+
     useEffect(() => {
         fetchColors();
     }, [])
@@ -31,8 +43,13 @@ const ColorsIndex = (props) => {
     return(
         <div class="card-deck">
             <Container>
+            <div class="actions">
+            <Button class="create" onClick={updateOn}>Create Color</Button>
+            </div>
                 <Row>
-                        <ColorsTable colors={colors} fetchColors={fetchColors} token={props.token}/>
+                    <ColorsTable colors={colors} updateOn={updateOn} fetchColors={fetchColors} token={props.token}/>
+
+                    {updateActive ? <ColorCreate fetchColors={fetchColors} updateOff={updateOff} token={props.token}/> : <></>}
                 </Row>
             </Container>
         </div>
