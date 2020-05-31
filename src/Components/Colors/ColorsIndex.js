@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ColorsTable from './ColorsTable';
 import ColorCreate from './ColorCreate';
+import Picker from './Picker';
 import {
     Row,
     Col,
@@ -47,6 +48,7 @@ const ColorsIndex = (props) => {
             <Button class="create" onClick={updateOn}>Create Color</Button>
             </div>
                 <Row>
+
                     <ColorsTable colors={colors} updateOn={updateOn} fetchColors={fetchColors} token={props.token}/>
 
                     {updateActive ? <ColorCreate fetchColors={fetchColors} updateOff={updateOff} token={props.token}/> : <></>}

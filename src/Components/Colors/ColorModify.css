@@ -3,7 +3,7 @@
     text-align: center;
 }
 
-button.btn.btn-secondary {
+button.btn.btn-secondary.create {
     background-color: rgb(59, 202, 221);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     border-radius: 10px;
@@ -11,6 +11,6 @@ button.btn.btn-secondary {
     border: 0;
 }
 
-button.btn.btn-secondary:hover {
+button.btn.btn-secondary.create:hover {
     background-color: rgb(64, 152, 163);
 }
