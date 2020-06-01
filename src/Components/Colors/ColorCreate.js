@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import {Button, Modal, ModalHeader, ModalBody, FormGroup, Label, Form, Input, InputGroup, InputGroupAddon} from 'reactstrap';
 import './ColorModify.css'
-import Picker from './Picker';
+import { MdColorLens } from 'react-icons/md';
+import { ChromePicker } from 'react-color';
 
 const ColorCreate = (props) => {
     const [name, setName] = useState('');
-    const [hex, setHex] = useState('#fff');
+    const [hex, setHex] = useState('#E4E4E4');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -53,11 +54,9 @@ const ColorCreate = (props) => {
             background: hex,
           },
           swatch: {
-            padding: '5px',
-            background: '#fff',
+            padding: '5px 5px 0px 5px',
+            background: hex,
             borderRadius: '1px',
-            boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
-            display: 'inline-block',
             cursor: 'pointer',
           },
           popover: {
@@ -93,12 +92,12 @@ const ColorCreate = (props) => {
 
                     <InputGroupAddon addonType="prepend">
 
-                    <div style={ styles.swatch } onClick={handleClick}></div>
+                    <div style={ styles.swatch } onClick={handleClick}><MdColorLens size={32}/></div>
                     <div style={ styles } />
 
                     { displayColorPicker ? <div style={ styles.popover }>
                     <div style={ styles.cover } onClick={ handleClose }/>
-                    <Picker color={hex} onChange={handleChange} />
+                    <ChromePicker color={hex} onChange={updatedColor => setHex(updatedColor.hex)}/>
                     </div> : null }
                         
                     {/* <Button onClick={pickerOn}>Color</Button>
@@ -107,7 +106,7 @@ const ColorCreate = (props) => {
                     </InputGroupAddon>
                     <Input
                         name="hex"
-                        placeholder="#428942"
+                        disabled
                         value={hex}
 
                         maxLength={7}
