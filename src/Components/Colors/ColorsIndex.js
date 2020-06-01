@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ColorsTable from './ColorsTable';
 import ColorCreate from './ColorCreate';
+import ColorEdit from './ColorEdit';
 import {
     Row,
     Container,
@@ -60,9 +61,11 @@ const ColorsIndex = (props) => {
             </div>
                 <Row>
 
-                    <ColorsTable colors={colors} createOn={createOn} fetchColors={fetchColors} token={props.token}/>
+                    <ColorsTable colors={colors} editUpdateColor={editUpdateColor} createOn={createOn} editOn={editOn} fetchColors={fetchColors} token={props.token}/>
 
                     {createActive ? <ColorCreate fetchColors={fetchColors} createOff={createOff} token={props.token}/> : <></>}
+
+                    {editActive ? <ColorEdit colorToUpdate={colorToUpdate} editOff={editOff} token={props.token} fetchColors={fetchColors}/> : <></>}
                 </Row>
             </Container>
         </div>

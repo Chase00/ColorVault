@@ -4,6 +4,17 @@
     border-radius: 10px 10px 0px 0px;
 }
 
+.icons {
+    filter: brightness(0) invert(1);
+    float: right;
+    opacity: 70%;
+}
+
+.icons :hover {
+    opacity: 100%;
+    color: red;
+}
+
 div.card-body {
     font-family: 'Quicksand', sans-serif;
     text-align: center;
@@ -30,4 +41,3 @@ div.card {
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
-
