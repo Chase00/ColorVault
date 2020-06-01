@@ -3,7 +3,6 @@ import ColorsTable from './ColorsTable';
 import ColorCreate from './ColorCreate';
 import {
     Row,
-    Col,
     Container,
     Button
 } from 'reactstrap';
@@ -11,6 +10,13 @@ import './ColorModify.css'
 
 const ColorsIndex = (props) => {
     const [colors, setColors] = useState([]);
+    const [createActive, setCreateActive] = useState(false);
+    const [editActive, setEditActive] = useState(false);
+    const [colorToUpdate, setColorToUpdate] = useState({});
+
+    useEffect(() => {
+        fetchColors();
+    }, [])
 
     const fetchColors = () => {
         fetch('http://localhost:3000/api/color', {
@@ -21,36 +27,42 @@ const ColorsIndex = (props) => {
             })
         }) .then((res) => res.json())
         .then((colorData) => {
-            console.log(colorData)
             setColors(colorData)
         })
     }
 
-    const [updateActive, setUpdateActive] = useState(false);
-
-    const updateOn = () => {
-        setUpdateActive(true);
+    const createOn = () => {
+        setCreateActive(true);
     }
 
-    const updateOff = () => {
-        setUpdateActive(false);
+    const createOff = () => {
+        setCreateActive(false);
     }
 
-    useEffect(() => {
-        fetchColors();
-    }, [])
+    const editUpdateColor = (color) => {
+        setColorToUpdate(color);
+        console.log(color);
+    }
+
+    const editOn = () => {
+        setEditActive(true);
+    }
+
+    const editOff = () => {
+        setEditActive(false);
+    }
 
     return(
         <div class="card-deck">
             <Container>
             <div class="actions">
-            <Button class="create" onClick={updateOn}>Create Color</Button>
+            <Button class="create" onClick={createOn}>Create Color</Button>
             </div>
                 <Row>
 
-                    <ColorsTable colors={colors} updateOn={updateOn} fetchColors={fetchColors} token={props.token}/>
+                    <ColorsTable colors={colors} createOn={createOn} fetchColors={fetchColors} token={props.token}/>
 
-                    {updateActive ? <ColorCreate fetchColors={fetchColors} updateOff={updateOff} token={props.token}/> : <></>}
+                    {createActive ? <ColorCreate fetchColors={fetchColors} createOff={createOff} token={props.token}/> : <></>}
                 </Row>
             </Container>
         </div>

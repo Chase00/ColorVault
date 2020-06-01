@@ -25,7 +25,7 @@ const ColorCreate = (props) => {
             })
         }).then((res) => res.json())
         .then(() => {
-            props.updateOff();
+            props.createOff();
             props.fetchColors();
             setName('');
             setHex('');
@@ -73,8 +73,8 @@ const ColorCreate = (props) => {
         });
 
     return(
-        <Modal isOpen={true} toggle={props.updateOff}>
-            <ModalHeader toggle={props.updateOff}>Create a Color</ModalHeader>
+        <Modal isOpen={true} toggle={props.createOff}>
+            <ModalHeader toggle={props.createOff}>Create a Color</ModalHeader>
             <ModalBody>
             <Form onSubmit={handleSubmit}> 
                 <FormGroup>
@@ -99,9 +99,6 @@ const ColorCreate = (props) => {
                     <div style={ styles.cover } onClick={ handleClose }/>
                     <ChromePicker color={hex} onChange={updatedColor => setHex(updatedColor.hex)}/>
                     </div> : null }
-                        
-                    {/* <Button onClick={pickerOn}>Color</Button>
-                    {pickerActive ? <Picker pickerOff={pickerOff} /> : <></>} */}
 
                     </InputGroupAddon>
                     <Input
