@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import ColorsTable from './ColorsTable';
 import ColorCreate from './ColorCreate';
-import Picker from './Picker';
 import {
     Row,
     Col,
