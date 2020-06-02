@@ -44,7 +44,6 @@ function App() {
               <Route exact path="/colors"><ColorsIndex token={sessionToken}/></Route>
               <Route exact path="/about"></Route>
         </Switch>
-        <Auth updateToken={updateToken}/>
       </Router>
       <Footer />
     </div>
