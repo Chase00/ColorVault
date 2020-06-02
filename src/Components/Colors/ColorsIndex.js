@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ColorsTable from './ColorsTable';
 import ColorCreate from './ColorCreate';
 import ColorEdit from './ColorEdit';
+import APIURL from '../../Helpers/enviroment';
 import {
     Row,
     Container,
@@ -20,7 +21,7 @@ const ColorsIndex = (props) => {
     }, [])
 
     const fetchColors = () => {
-        fetch('http://localhost:3000/api/color', {
+        fetch(`${APIURL}/api/color`, {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',

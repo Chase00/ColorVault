@@ -39,6 +39,9 @@ const NavBar = (props) => {
                  :
                  <Nav className="mr-auto" navbar>
                  <NavItem>
+                   <NavLink><Link to="/colors">Colors</Link></NavLink>
+                 </NavItem>
+                 <NavItem>
                    <NavLink><Link to="/home">About</Link></NavLink>
                  </NavItem>
                </Nav>

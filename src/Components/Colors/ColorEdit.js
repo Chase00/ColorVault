@@ -3,6 +3,7 @@ import { Modal, ModalHeader, ModalBody, FormGroup, Label, Form, Input, Button, I
 import './ColorModify.css'
 import { MdColorLens } from 'react-icons/md';
 import { ChromePicker } from 'react-color';
+import APIURL from '../../Helpers/enviroment';
 
 const WorkoutEdit = (props) => {
 
@@ -11,7 +12,7 @@ const WorkoutEdit = (props) => {
 
     const colorUpdate = (event, color) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/api/color/${props.colorToUpdate.id}`, {
+        fetch(`${APIURL}/api/color/${props.colorToUpdate.id}`, {
             method: 'PUT',
             body: JSON.stringify({
             

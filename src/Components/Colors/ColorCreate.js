@@ -3,6 +3,7 @@ import {Button, Modal, ModalHeader, ModalBody, FormGroup, Label, Form, Input, In
 import './ColorModify.css'
 import { MdColorLens } from 'react-icons/md';
 import { ChromePicker } from 'react-color';
+import APIURL from '../../Helpers/enviroment';
 
 const ColorCreate = (props) => {
     const [name, setName] = useState('');
@@ -10,7 +11,7 @@ const ColorCreate = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:3000/api/color/', {
+        fetch(`${APIURL}/api/color/`, {
             method: 'POST',
             body: JSON.stringify({
                 

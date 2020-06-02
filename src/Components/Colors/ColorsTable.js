@@ -5,11 +5,12 @@ import {
   CardTitle, CardText
 } from 'reactstrap';
 import './ColorCard.css'
+import APIURL from '../../Helpers/enviroment';
 
 const ColorsTable = (props) => {
 
     const deleteColor = (color) => {
-        fetch(`http://localhost:3000/api/color/${color.id}`, {
+        fetch(`${APIURL}/api/color/${color.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
