@@ -4,6 +4,7 @@ import './ColorModify.css'
 import { MdColorLens } from 'react-icons/md';
 import { ChromePicker } from 'react-color';
 import APIURL from '../../Helpers/enviroment';
+import '../../App.css';
 
 const ColorCreate = (props) => {
     const [name, setName] = useState('');
@@ -74,23 +75,23 @@ const ColorCreate = (props) => {
         });
 
     return(
-        <Modal isOpen={true} toggle={props.createOff}>
+        <Modal isOpen={true} toggle={props.createOff} style={{width: '25%'}}>
             <ModalHeader toggle={props.createOff}>Create a Color</ModalHeader>
-            <ModalBody>
-            <Form onSubmit={handleSubmit}> 
-                <FormGroup>
-                    <Label htmlFor="name"/>
+            <ModalBody class="form-contents">
+            <Form onSubmit={handleSubmit}>
+
+              <Label htmlFor="name">Name</Label> 
+                <InputGroup>
                     <Input 
                         name="name"
                         placeholder="Color Name"
                         value={name}
                         minLength={1}
                         onChange={(e) => setName(e.target.value)}/>
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="hex"/>
-                    <InputGroup>
+                    </InputGroup>
 
+                    <Label htmlFor="hex">Hex Code</Label>
+                    <InputGroup>
                     <InputGroupAddon addonType="prepend">
 
                     <div style={ styles.swatch } onClick={handleClick}><MdColorLens size={32}/></div>
@@ -110,8 +111,9 @@ const ColorCreate = (props) => {
                         maxLength={7}
                         onChange={(e) => setHex(e.target.value)} />
                     </InputGroup>
-                </FormGroup>
-                <Button type="submit">Add Color</Button>
+                <div class="actions">
+                <button class="button-main" type="submit">Add Color</button>
+                </div>
             </Form>
             </ModalBody>
         </Modal>

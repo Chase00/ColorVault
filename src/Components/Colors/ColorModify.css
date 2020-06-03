@@ -1,5 +1,5 @@
 .actions {
-    padding: 2%;
+    padding: 3%;
     text-align: center;
 }
 
@@ -13,4 +13,25 @@ button.btn.btn-secondary.create {
 
 button.btn.btn-secondary.create:hover {
     background-color: rgb(64, 152, 163);
+}
+
+div.modal-header {
+    background-color: #20232a;
+    color: white;
+}
+
+button.close {
+    color: white;
+}
+
+button.close:hover {
+    color: white;
+}
+
+form.button {
+    text-align: center;
+}
+
+div.modal-body {
+    padding: 0% 20% 0 20%;
 }
