@@ -1,12 +1,11 @@
 .auth-container {
-    padding-top: 5%;
+    padding-top: 2%;
 }
 
 .auth-title {
     text-align: center;
-    color: #3b3b3b;
+    color: rgb(65, 165, 179);
     font-family: 'Quicksand', sans-serif;
-    padding-bottom: 5%;
 }
 
 Label {
@@ -39,4 +38,9 @@ Label {
 
 span.input-group-text{
     background-color: transparent;
+}
+
+.auth-link {
+    text-align: center;
+    color: rgb(150, 150, 150);
 }

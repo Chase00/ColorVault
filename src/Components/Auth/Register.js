@@ -40,7 +40,7 @@ const Register = (props) => {
         <Row>
             <Col md="4" />
             <Col md="4">
-            <h3 class="auth-title">Register</h3>
+            <h2 class="auth-title">Register</h2>
             <Form onSubmit={handleSubmit}>
             <Label htmlFor="email">Email <span style={{color: "red"}}>*</span></Label>
             <InputGroup>
@@ -88,10 +88,10 @@ const Register = (props) => {
             </InputGroup>
 
                 <div style={{textAlign: "center"}}>
-                    <button type="submit" class="user-button">Signup</button>
+                    <button type="submit" class="user-button">Register</button>
                 </div>
             </Form>
-            <Link to="/login">Already have an account? Click here to <b>Log in</b></Link>
+            <Link to="/login"><p class="auth-link">Already have an account? <br /> Click here to <b>Log in</b></p></Link>
         </Col>
         </Row>
         </Container>

@@ -40,7 +40,7 @@ const Login = (props) => {
         <Row>
             <Col md="4" />
             <Col md="4">
-            <h3 class="auth-title">Log in to your account</h3>
+            <h2 class="auth-title">Log in to your account</h2>
             <Form onSubmit={handleSubmit}>
 
             <Label htmlFor="email">Email</Label>
@@ -75,7 +75,7 @@ const Login = (props) => {
                     <button type="submit" class="user-button">Log In</button>
                 </div>
             </Form>
-            <Link to="/signup">Don't have an account? Click here to <b>Sign Up</b></Link>
+            <Link to="/signup"><p class="auth-link"> Don't have an account? <br /> Click here to <b>Sign Up</b></p></Link>
             </Col>
         </Row>
         </Container>
