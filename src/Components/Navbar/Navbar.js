@@ -28,22 +28,13 @@ const NavBar = (props) => {
         <Collapse isOpen={isOpen} navbar>
 
          { props.token === localStorage.getItem('token') ?
-                   <Nav className="mr-auto" navbar>
+                   <Nav className="mr-auto" navbar>  
                    <NavItem>
                     <NavLink><Link to="/colors">Colors</Link></NavLink>
-                   </NavItem>
-                   <NavItem>
-                     <NavLink><Link to="/home">About</Link></NavLink>
                    </NavItem>
                  </Nav>
                  :
                  <Nav className="mr-auto" navbar>
-                 <NavItem>
-                   <NavLink><Link to="/colors">Colors</Link></NavLink>
-                 </NavItem>
-                 <NavItem>
-                   <NavLink><Link to="/home">About</Link></NavLink>
-                 </NavItem>
                </Nav>
         }
 
