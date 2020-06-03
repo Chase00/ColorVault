@@ -12,6 +12,8 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
+  Redirect,
+  useHistory
 } from 'react-router-dom'
 
 function App() {
@@ -46,12 +48,10 @@ function App() {
               <Route exact path="/signup"><Register updateToken={updateToken}/></Route>
               <Route exact path="/login"><Login updateToken={updateToken}/></Route>
 
-              <Route exact path="/home"><Home /></Route>
+              <Route exact path="/"><Home /></Route>
               <Route exact path="/colors"><ColorsIndex token={sessionToken}/></Route>
               <Route exact path="/about"></Route>
         </Switch>
-        {/* <Auth updateToken={updateToken}/>
-        <ColorsIndex token={sessionToken}/> */}
       </Router>
       <Footer />
     </div>
