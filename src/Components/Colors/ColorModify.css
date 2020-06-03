@@ -35,3 +35,10 @@ form.button {
 div.modal-body {
     padding: 0% 20% 0 20%;
 }
+
+.no-color-container {
+    text-align: center;
+    margin: 20% 20% 15%;
+    color: #b4b4b4;
+    font-weight: 800;
+}
