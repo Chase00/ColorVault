@@ -1,0 +1,42 @@
+.auth-container {
+    padding-top: 5%;
+}
+
+.auth-title {
+    text-align: center;
+    color: #3b3b3b;
+    font-family: 'Quicksand', sans-serif;
+    padding-bottom: 5%;
+}
+
+Label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #646464;
+    padding-top: 8%;
+}
+
+.user-button {
+    margin: 5%;
+    background-color: rgb(70, 197, 214);
+    color: white;
+    padding: 10px 70px;
+    border-radius: 5px;;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    outline: 0;
+    border: 0;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.user-button:hover {
+    background-color: rgb(65, 165, 179);
+    transition: 0.2s;
+}
+
+span.input-group-text{
+    background-color: transparent;
+}

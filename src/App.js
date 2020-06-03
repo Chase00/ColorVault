@@ -5,6 +5,9 @@ import Footer from './Components/Footer/Footer';
 import Auth from './Components/Auth/Auth';
 import ColorsIndex from './Components/Colors/ColorsIndex';
 import Home from './Components/Home/Home';
+import Register from './Components/Auth/Register';
+import Login from './Components/Auth/Login';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -40,12 +43,15 @@ function App() {
       <Router>
       <Navbar token={sessionToken} clickLogout={clearToken}/>
       <Switch>
+              <Route exact path="/signup"><Register updateToken={updateToken}/></Route>
+              <Route exact path="/login"><Login updateToken={updateToken}/></Route>
+
               <Route exact path="/home"><Home /></Route>
               <Route exact path="/colors"><ColorsIndex token={sessionToken}/></Route>
               <Route exact path="/about"></Route>
         </Switch>
-        <Auth updateToken={updateToken}/>
-        <ColorsIndex token={sessionToken}/>
+        {/* <Auth updateToken={updateToken}/>
+        <ColorsIndex token={sessionToken}/> */}
       </Router>
       <Footer />
     </div>

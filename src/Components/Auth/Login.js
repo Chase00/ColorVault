@@ -1,6 +1,13 @@
 import React, {useState} from 'react';
-import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
+import {Form, FormGroup, Label, Input, Container, Row, Col, InputGroup, InputGroupAddon, InputGroupText} from 'reactstrap';
 import APIURL from '../../Helpers/enviroment';
+import {
+    Link,
+} from 'react-router-dom'
+
+import { MdEmail, MdLock } from 'react-icons/md';
+
+import './Auth.css'
 
 const Login = (props) => {
     const [email, setEmail] = useState('');
@@ -29,32 +36,49 @@ const Login = (props) => {
     }
 
     return(
-        <div>
-            <h1>Login</h1>
+        <Container className="auth-container">
+        <Row>
+            <Col md="4" />
+            <Col md="4">
+            <h3 class="auth-title">Log in to your account</h3>
             <Form onSubmit={handleSubmit}>
-                <FormGroup>
-                    <Label htmlFor="email">Email</Label>
-                    <Input 
+
+            <Label htmlFor="email">Email</Label>
+            <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                <InputGroupText><MdEmail size={20}/></InputGroupText>
+                </InputGroupAddon>
+                    <Input
                         name="email"
                         type="email"
-                        placeholder="example@example.com"
+                        placeholder="Email address"
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)} />
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="password">Password</Label>
-                    <Input 
+                </InputGroup>
+
+                <Label htmlFor="password">Password</Label>
+                <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                <InputGroupText><MdLock size={20}/></InputGroupText>
+                </InputGroupAddon>
+                    <Input
                         name="password"
                         type="password"
                         placeholder="Password"
                         required
                         value={password}
                         onChange={(e) => setPassword(e.target.value)} />
-                </FormGroup>
-                <Button type="submit">Login</Button>
+                </InputGroup>
+
+                <div style={{textAlign: "center"}}>
+                    <button type="submit" class="user-button">Log In</button>
+                </div>
             </Form>
-        </div>
+            <Link to="/signup">Don't have an account? Click here to <b>Sign Up</b></Link>
+            </Col>
+        </Row>
+        </Container>
     )
 }
 
