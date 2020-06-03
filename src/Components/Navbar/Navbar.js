@@ -47,8 +47,12 @@ const NavBar = (props) => {
                </Nav>
         }
 
+        { props.token === localStorage.getItem('token') ?
+                  <NavbarText onClick={props.clickLogout}><MdAccountCircle size={40}/> Sign Out</NavbarText>
+                 :
+                 <Link to="/login"><NavbarText><MdAccountCircle size={40}/> Log in</NavbarText></Link>
+        }
 
-          <NavbarText onClick={props.clickLogout}><MdAccountCircle size={40}/> Sign Out</NavbarText>
         </Collapse>
         </Navbar>
     </div>
