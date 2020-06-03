@@ -1,8 +1,29 @@
 .home-container {
-    padding-top: 5%;
+    padding: 2% 0 12% 0;
+}
+
+.home-title {
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(70, 197, 214);
+    font-size: 4.5em;
+    font-weight: 700;
+}
+
+.home-second {
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(66, 66, 66);
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.home-text {
+    color: rgb(122, 122, 122);
+    font-size: 18px;
+    padding: 5% 0 5% 0;
 }
 
 .color-book {
-    height: 550px;
-    width: 550px;
+    height: 400px;
+    width: 380px;
 }
+
