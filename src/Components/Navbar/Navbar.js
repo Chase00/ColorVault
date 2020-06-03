@@ -23,14 +23,14 @@ const NavBar = (props) => {
   return (
     <div>
       <Navbar expand="sm" class="navbar">
-        <NavbarBrand href="/"><MdColorLens size={32}/> Color Vault</NavbarBrand>
+        <Link to="/home"><NavbarBrand href="/"><MdColorLens size={32}/>Color Vault</NavbarBrand></Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
 
          { props.token === localStorage.getItem('token') ?
                    <Nav className="mr-auto" navbar>
                    <NavItem>
-                     <NavLink><Link to="/colors">Colors</Link></NavLink>
+                    <NavLink><Link to="/colors">Colors</Link></NavLink>
                    </NavItem>
                    <NavItem>
                      <NavLink><Link to="/home">About</Link></NavLink>
