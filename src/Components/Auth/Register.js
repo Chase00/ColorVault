@@ -90,7 +90,7 @@ const Register = (props) => {
                                 type="password"
                                 placeholder="Password"
                                 required
-                                minLength={3}
+                                minLength={5}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)} />
                         </InputGroup>
