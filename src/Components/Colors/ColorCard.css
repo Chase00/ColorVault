@@ -4,15 +4,41 @@
     border-radius: 10px 10px 0px 0px;
 }
 
-.icons {
-    filter: brightness(0) invert(1);
+.edit {
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,.5));
+    color: white;
     float: right;
     opacity: 70%;
 }
 
-.icons :hover {
+.edit:hover {
+    color: #fce4a1;
     opacity: 100%;
-    color: red;
+    transition: 0.2s;
+}
+
+.delete {
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,.5));
+    color: white;
+    float: right;
+    opacity: 70%;
+}
+
+.delete:hover {
+    color: #f89c9c;
+    opacity: 100%;
+    transition: 0.2s;
+}
+
+.copy {
+    color: #bebebe;
+    display: inline-block;
+    padding: 0 0 0 10px;
+}
+
+.copy:hover {
+    color: #83bd5c;
+    transition: 0.2s;
 }
 
 div.card-body {

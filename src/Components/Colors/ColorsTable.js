@@ -53,25 +53,28 @@ const ColorCard = (props) => {
         <Card>
           <CardBody>
             <div class="color-area" style={{backgroundColor: hex}}>
-                <div class="icons">
 
-                <MdModeEdit size={40} 
-                    onClick={() => 
-                    {props.editUpdateColor(props.color);
-                    props.editOn()}}
-                />
-
+                <div class="delete">
                 <MdDelete size={40}
                     onClick={() => {
                         props.deleteColor(props.color)
                     }}
                 />
-  
                 </div>
+
+                <div class="edit">
+                <MdModeEdit size={40} 
+                    onClick={() => 
+                    {props.editUpdateColor(props.color);
+                    props.editOn()}}
+                />
+                </div>
+
             </div>
             <CardBody class="card-cont">
               <CardTitle class="color-name">{props.name}</CardTitle>
               <CardText class="color-hex">{props.hex}
+              <div class="copy">
               <CopyToClipboard text={props.hex} onCopy={() => {
                   setCopied(true)
                     toast.success(`✨ Copied ${props.hex} to clipboard`, {
@@ -87,6 +90,7 @@ const ColorCard = (props) => {
               }}>
               <FiCopy/>
               </CopyToClipboard>
+              </div>
               </CardText>
             </CardBody>
           </CardBody>
