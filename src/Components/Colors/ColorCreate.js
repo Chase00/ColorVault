@@ -1,123 +1,131 @@
-import React, {useState} from 'react'
-import {Button, Modal, ModalHeader, ModalBody, FormGroup, Label, Form, Input, InputGroup, InputGroupAddon} from 'reactstrap';
-import './ColorModify.css'
+import React, { useState } from 'react'
 import { MdColorLens } from 'react-icons/md';
 import { ChromePicker } from 'react-color';
 import APIURL from '../../Helpers/enviroment';
+import './ColorModify.css'
 import '../../App.css';
+import { 
+  Modal, 
+  ModalHeader, 
+  ModalBody, 
+  Label, 
+  Form, 
+  Input, 
+  InputGroup, 
+  InputGroupAddon 
+} from 'reactstrap';
 
 const ColorCreate = (props) => {
-    const [name, setName] = useState('');
-    const [hex, setHex] = useState('#E4E4E4');
+  const [name, setName] = useState('');
+  const [hex, setHex] = useState('#E4E4E4');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        fetch(`${APIURL}/api/color/`, {
-            method: 'POST',
-            body: JSON.stringify({
-                
-            color: {
-                name: name,
-                hex: hex
-            }}),
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(`${APIURL}/api/color/`, {
+      method: 'POST',
+      body: JSON.stringify({
 
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                'Authorization': props.token
-            })
-        }).then((res) => res.json())
-        .then(() => {
-            props.createOff();
-            props.fetchColors();
-            setName('');
-            setHex('');
-        })
-    }
+        color: {
+          name: name,
+          hex: hex
+        }
+      }),
 
-    let [displayColorPicker, setDisplayColorPicker] = useState(false);
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': props.token
+      })
+    }).then((res) => res.json())
+      .then(() => {
+        props.createOff();
+        props.fetchColors();
+        setName('');
+        setHex('');
+      })
+  }
 
-    const handleClick = () => {
-        setDisplayColorPicker(!displayColorPicker)
-      };
-    
-      const handleClose = () => {
-        setDisplayColorPicker(false);
-      };
-    
-      const handleChange = (color) => {
-        setHex({ color: hex })
-      };
+  let [displayColorPicker, setDisplayColorPicker] = useState(false);
 
-    const styles = ({
-          color: {
-            width: '36px',
-            height: '14px',
-            borderRadius: '2px',
-            background: hex,
-          },
-          swatch: {
-            padding: '5px 5px 0px 5px',
-            background: hex,
-            borderRadius: '1px',
-            cursor: 'pointer',
-          },
-          popover: {
-            position: 'absolute',
-            zIndex: '2',
-          },
-          cover: {
-            position: 'fixed',
-            top: '0px',
-            right: '0px',
-            bottom: '0px',
-            left: '0px',
-          },
-        });
+  const handleClick = () => {
+    setDisplayColorPicker(!displayColorPicker)
+  };
 
-    return(
-        <Modal isOpen={true} toggle={props.createOff} style={{width: '25%'}}>
-            <ModalHeader toggle={props.createOff}>Create a Color</ModalHeader>
-            <ModalBody class="form-contents">
-            <Form onSubmit={handleSubmit}>
+  const handleClose = () => {
+    setDisplayColorPicker(false);
+  };
 
-              <Label htmlFor="name">Name</Label> 
-                <InputGroup>
-                    <Input 
-                        name="name"
-                        placeholder="Color Name"
-                        value={name}
-                        minLength={1}
-                        onChange={(e) => setName(e.target.value)}/>
-                    </InputGroup>
+  const styles = ({
+    color: {
+      width: '36px',
+      height: '14px',
+      borderRadius: '2px',
+      background: hex,
+    },
+    swatch: {
+      padding: '5px 5px 0px 5px',
+      background: hex,
+      borderRadius: '1px',
+      cursor: 'pointer',
+    },
+    popover: {
+      position: 'absolute',
+      zIndex: '2',
+    },
+    cover: {
+      position: 'fixed',
+      top: '0px',
+      right: '0px',
+      bottom: '0px',
+      left: '0px',
+    },
+  });
 
-                    <Label htmlFor="hex">Hex Code</Label>
-                    <InputGroup>
-                    <InputGroupAddon addonType="prepend">
+  return (
+    <Modal isOpen={true} toggle={props.createOff} style={{ width: '25%' }}>
+      <ModalHeader toggle={props.createOff}>Create a Color</ModalHeader>
+      <ModalBody class="form-contents">
+        <Form onSubmit={handleSubmit}>
 
-                    <div style={ styles.swatch } onClick={handleClick}><MdColorLens size={32}/></div>
-                    <div style={ styles } />
+          <Label htmlFor="name">Name</Label>
+          <InputGroup>
+            <Input
+              name="name"
+              placeholder="Color Name"
+              value={name}
 
-                    { displayColorPicker ? <div style={ styles.popover }>
-                    <div style={ styles.cover } onClick={ handleClose }/>
-                    <ChromePicker color={hex} onChange={updatedColor => setHex(updatedColor.hex)}/>
-                    </div> : null }
+              minLength={2}
+              maxLength={25}
+              onChange={(e) => setName(e.target.value)} />
+          </InputGroup>
 
-                    </InputGroupAddon>
-                    <Input
-                        name="hex"
-                        disabled
-                        value={hex}
+          <Label htmlFor="hex">Hex Code</Label>
+          <InputGroup>
+            <InputGroupAddon addonType="prepend">
 
-                        maxLength={7}
-                        onChange={(e) => setHex(e.target.value)} />
-                    </InputGroup>
-                <div class="actions">
-                <button class="button-main" type="submit">Add Color</button>
-                </div>
-            </Form>
-            </ModalBody>
-        </Modal>
-    )
+              <div style={styles.swatch} onClick={handleClick}><MdColorLens size={32} /></div>
+              <div style={styles} />
+
+              {displayColorPicker ? <div style={styles.popover}>
+                <div style={styles.cover} onClick={handleClose} />
+                <ChromePicker color={hex} onChange={updatedColor => setHex(updatedColor.hex)} />
+              </div> : null}
+
+            </InputGroupAddon>
+            <Input
+              name="hex"
+              disabled
+              value={hex}
+
+              maxLength={7}
+              onChange={(e) => setHex(e.target.value)} />
+          </InputGroup>
+          <div class="actions">
+            <button class="button-main" type="submit">Add Color</button>
+          </div>
+        </Form>
+      </ModalBody>
+    </Modal>
+  )
 }
 
 export default ColorCreate;

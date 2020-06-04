@@ -1,10 +1,9 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import './Home.css'
 import '../../App.css';
-import {
-    Link,
-  } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 const Home = () => {
     return (
         <Container className="home-container">
@@ -17,10 +16,10 @@ const Home = () => {
                     <Link to="/login"><button class="button-secondary">Log in</button></Link>
                 </Col>
                 <Col md="6" >
-                <img class="color-book" src="/images/colorbook.svg" alt="color book"></img>
+                    <img class="color-book" src="/images/colorbook.svg" alt="color book"></img>
                 </Col>
             </Row>
-        </Container>   
+        </Container>
     )
 }
 

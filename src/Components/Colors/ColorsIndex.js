@@ -4,11 +4,11 @@ import ColorCreate from './ColorCreate';
 import ColorEdit from './ColorEdit';
 import NoColors from './NoColors';
 import APIURL from '../../Helpers/enviroment';
+import './ColorModify.css'
 import {
     Row,
     Container
 } from 'reactstrap';
-import './ColorModify.css'
 
 const ColorsIndex = (props) => {
     const [colors, setColors] = useState([]);
@@ -36,13 +36,7 @@ const ColorsIndex = (props) => {
     }
 
     const activeColors = (data) => {
-        if (data.length === 0) {
-            console.log("EMPTYYYYYY")
-            setIsEmpty(true)
-        } else {
-            console.log("Has colors")
-            setIsEmpty(false);
-        }
+        (data.length === 0) ? setIsEmpty(true) : setIsEmpty(false);
     }
 
     const createOn = () => {
