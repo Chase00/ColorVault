@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MdModeEdit, MdDelete } from "react-icons/md";
+import { FiCopy } from "react-icons/fi"
 import {
     Col, Card, CardBody,
   CardTitle, CardText
 } from 'reactstrap';
 import './ColorCard.css'
 import APIURL from '../../Helpers/enviroment';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const ColorsTable = (props) => {
 
@@ -38,6 +40,9 @@ const ColorsTable = (props) => {
 }
 
 const ColorCard = (props) => {
+    const [value, setValue] = useState('');
+    const [copied, setCopied] = useState(false);
+
     const hex = props.hex
   
     return (
@@ -62,7 +67,11 @@ const ColorCard = (props) => {
             </div>
             <CardBody class="card-cont">
               <CardTitle class="color-name">{props.name}</CardTitle>
-              <CardText class="color-hex">{props.hex}</CardText>
+              <CardText class="color-hex">{props.hex}
+              <CopyToClipboard text={props.hex} onCopy={() => setCopied(true)}>
+              <FiCopy/>
+              </CopyToClipboard>
+              </CardText>
             </CardBody>
           </CardBody>
         </Card>

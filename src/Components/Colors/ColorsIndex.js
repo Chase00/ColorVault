@@ -31,7 +31,6 @@ const ColorsIndex = (props) => {
         }).then((res) => res.json())
             .then((colorData) => {
                 setColors(colorData)
-                console.log(colorData)
                 activeColors(colorData)
             })
     }
