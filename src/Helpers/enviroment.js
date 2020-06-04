@@ -5,7 +5,7 @@ switch (window.location.hostname) {
         APIURL = "http://localhost:3000"
         break
     case "thecolorvault-client.herokuapp.com":
-        APIURL = "https://thecolorvault.herokuapp.com"
+        APIURL = "https://thecolorvault-api.herokuapp.com"
         break
 }
 
