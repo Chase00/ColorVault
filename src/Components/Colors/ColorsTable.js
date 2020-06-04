@@ -8,6 +8,8 @@ import {
 import './ColorCard.css'
 import APIURL from '../../Helpers/enviroment';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ColorsTable = (props) => {
 
@@ -32,6 +34,7 @@ const ColorsTable = (props) => {
         })
     }
 
+    
     return (
         <>
             {colorsMapper()}
@@ -39,6 +42,7 @@ const ColorsTable = (props) => {
     )
 }
 
+toast.configure();
 const ColorCard = (props) => {
     const [value, setValue] = useState('');
     const [copied, setCopied] = useState(false);
@@ -68,7 +72,19 @@ const ColorCard = (props) => {
             <CardBody class="card-cont">
               <CardTitle class="color-name">{props.name}</CardTitle>
               <CardText class="color-hex">{props.hex}
-              <CopyToClipboard text={props.hex} onCopy={() => setCopied(true)}>
+              <CopyToClipboard text={props.hex} onCopy={() => {
+                  setCopied(true)
+                    toast.success(`✨ Copied ${props.hex} to clipboard`, {
+                    color: "red",
+                    position: "bottom-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    });
+              }}>
               <FiCopy/>
               </CopyToClipboard>
               </CardText>

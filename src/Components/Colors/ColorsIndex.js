@@ -6,7 +6,7 @@ import NoColors from './NoColors';
 import APIURL from '../../Helpers/enviroment';
 import {
     Row,
-    Container,
+    Container
 } from 'reactstrap';
 import './ColorModify.css'
 

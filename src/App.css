@@ -38,3 +38,7 @@
     background-color: rgb(201, 201, 201);
     transition: 0.2s;
 }
+
+.Toastify__toast--success {
+    background-color: #20232a !important;
+}
