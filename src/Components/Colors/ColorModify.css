@@ -42,3 +42,9 @@ div.modal-body {
     color: #b4b4b4;
     font-weight: 800;
 }
+
+.color-box {
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+}

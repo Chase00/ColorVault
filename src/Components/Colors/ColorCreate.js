@@ -4,15 +4,15 @@ import { ChromePicker } from 'react-color';
 import APIURL from '../../Helpers/enviroment';
 import './ColorModify.css'
 import '../../App.css';
-import { 
-  Modal, 
-  ModalHeader, 
-  ModalBody, 
-  Label, 
-  Form, 
-  Input, 
-  InputGroup, 
-  InputGroupAddon 
+import {
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Label,
+  Form,
+  Input,
+  InputGroup,
+  InputGroupAddon
 } from 'reactstrap';
 
 const ColorCreate = (props) => {

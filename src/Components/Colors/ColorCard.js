@@ -20,7 +20,8 @@ const ColorCard = (props) => {
                     <div class="delete">
                         <MdDelete size={40}
                             onClick={() => {
-                                props.deleteColor(props.color)
+                                props.editUpdateColor(props.color)
+                                props.deleteOn();
                             }}
                         />
                     </div>

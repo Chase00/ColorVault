@@ -9,22 +9,11 @@ import {
 
 const ColorsTable = (props) => {
 
-    const deleteColor = (color) => {
-        fetch(`${APIURL}/api/color/${color.id}`, {
-            method: 'DELETE',
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                'Authorization': props.token
-            })
-        })
-        .then(() => props.fetchColors())
-    }
-
     const colorsMapper = () => {
         return props.colors.map((color, index) => {
             return (
                 <Col sm="3" key={index}>
-                    <ColorCard color={color} id={color.id} name={color.name} hex={color.hex} editUpdateColor={props.editUpdateColor} fetchColors={props.fetchColors} deleteColor={deleteColor} editOn={props.editOn} />
+                    <ColorCard color={color} id={color.id} name={color.name} hex={color.hex} editUpdateColor={props.editUpdateColor} fetchColors={props.fetchColors} editOn={props.editOn} deleteOn={props.deleteOn} />
                 </Col>
             )
         })

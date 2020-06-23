@@ -39,6 +39,26 @@
     transition: 0.2s;
 }
 
+.button-delete {
+    background-color: rgb(240, 102, 102);
+    color: white;
+    padding: 10px 42px;
+    border-radius: 5px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    outline: 0;
+    border: 0;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button-delete:hover {
+    background-color: rgb(197, 75, 75);
+    transition: 0.2s;
+}
+
 .Toastify__toast--success {
     background-color: #20232a !important;
 }
