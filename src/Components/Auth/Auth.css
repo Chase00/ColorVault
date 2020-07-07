@@ -12,7 +12,6 @@ Label {
     font-size: 12px;
     font-weight: 500;
     color: #646464;
-    padding-top: 8%;
 }
 
 .user-button {
@@ -44,3 +43,25 @@ span.input-group-text{
     text-align: center;
     color: rgb(150, 150, 150);
 }
+
+/* Validation */
+
+.form-message {
+    font-size: 10px;
+    padding-bottom: 4%;
+    font-size: 14px;
+  }
+  .form-message.valid {
+    color: #4caf50;
+    font-size: 14px;
+  }
+  .form-message.invalid {
+    color: #f44336;
+    font-size: 14px;
+  }
+  
+  .has-error {
+    border: 1px solid #f44336;
+    border-radius: 4px;
+  }
+  
