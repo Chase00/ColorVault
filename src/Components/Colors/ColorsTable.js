@@ -1,7 +1,6 @@
 import React from 'react';
 import ColorCard from './ColorCard';
 import './ColorCard.css'
-import APIURL from '../../Helpers/enviroment';
 import 'react-toastify/dist/ReactToastify.css';
 import {
     Col
