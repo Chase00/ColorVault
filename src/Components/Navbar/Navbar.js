@@ -16,7 +16,7 @@ import {
   Redirect
 } from 'react-router-dom'
 
-const NavBar = (props) => {
+const NavBar = ({token, clickLogout}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -28,7 +28,7 @@ const NavBar = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
 
-          {props.token === localStorage.getItem('token') ?
+          {token === localStorage.getItem('token') ?
             <Nav className="mr-auto" navbar>
               <Redirect to="/colors" />
               <NavItem>
@@ -41,9 +41,9 @@ const NavBar = (props) => {
             </Nav>
           }
 
-          {props.token === localStorage.getItem('token') ?
+          {token === localStorage.getItem('token') ?
 
-            <NavbarText onClick={props.clickLogout}><MdAccountCircle size={40} /> Sign Out</NavbarText>
+            <NavbarText onClick={clickLogout}><MdAccountCircle size={40} /> Sign Out</NavbarText>
             :
             <Link to="/login"><NavbarText><MdAccountCircle size={40} /> Log in</NavbarText></Link>
           }

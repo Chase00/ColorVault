@@ -11,7 +11,7 @@ import {
     Container
 } from 'reactstrap';
 
-const ColorsIndex = (props) => {
+const ColorsIndex = ({token}) => {
     const [colors, setColors] = useState([]);
     const [createActive, setCreateActive] = useState(false);
     const [editActive, setEditActive] = useState(false);
@@ -28,7 +28,7 @@ const ColorsIndex = (props) => {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.token
+                'Authorization': token
             })
         }).then((res) => res.json())
             .then((colorData) => {
@@ -77,13 +77,13 @@ const ColorsIndex = (props) => {
                 {isEmpty ? <NoColors /> : <></>}
             </div>
             <Row>
-                <ColorsTable colors={colors} editUpdateColor={editUpdateColor} createOn={createOn} editOn={editOn} deleteOn={deleteOn} fetchColors={fetchColors} token={props.token} />
+                <ColorsTable colors={colors} editUpdateColor={editUpdateColor} editOn={editOn} deleteOn={deleteOn} fetchColors={fetchColors}/>
 
-                {createActive ? <ColorCreate fetchColors={fetchColors} createOff={createOff} token={props.token} /> : <></>}
+                {createActive ? <ColorCreate fetchColors={fetchColors} createOff={createOff} token={token} /> : <></>}
 
-                {editActive ? <ColorEdit colorToUpdate={colorToUpdate} editOff={editOff} token={props.token} fetchColors={fetchColors} /> : <></>}
+                {editActive ? <ColorEdit colorToUpdate={colorToUpdate} editOff={editOff} token={token} fetchColors={fetchColors} /> : <></>}
 
-                {deleteActive ? <ColorDelete colorToUpdate={colorToUpdate} fetchColors={fetchColors} deleteOff={deleteOff} token={props.token} /> : <></>}
+                {deleteActive ? <ColorDelete colorToUpdate={colorToUpdate} fetchColors={fetchColors} deleteOff={deleteOff} token={token} /> : <></>}
             </Row>
         </Container>
 

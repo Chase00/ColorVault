@@ -26,7 +26,7 @@ const ValidationSchema = Yup.object().shape({
       .required("No password entered"),
   });
 
-const Login = (props) => {
+const Login = ({updateToken}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isValid, setIsValid] = useState(true);
@@ -60,7 +60,7 @@ const Login = (props) => {
                             response.json()
                         }
                         ).then((data) => {
-                            props.updateToken(data.sessionToken)
+                            updateToken(data.sessionToken)
                         }).catch(err => setIsValid(false));
                     }}
                     >

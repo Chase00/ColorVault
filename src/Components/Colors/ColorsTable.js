@@ -6,13 +6,13 @@ import {
     Col
 } from 'reactstrap';
 
-const ColorsTable = (props) => {
+const ColorsTable = ({colors, editUpdateColor, editOn, deleteOn, fetchColors}) => {
 
     const colorsMapper = () => {
-        return props.colors.map((color, index) => {
+        return colors.map((color, index) => {
             return (
                 <Col sm="3" key={index}>
-                    <ColorCard color={color} id={color.id} name={color.name} hex={color.hex} editUpdateColor={props.editUpdateColor} fetchColors={props.fetchColors} editOn={props.editOn} deleteOn={props.deleteOn} />
+                    <ColorCard color={color} id={color.id} name={color.name} hex={color.hex} editUpdateColor={editUpdateColor} fetchColors={fetchColors} editOn={editOn} deleteOn={deleteOn} />
                 </Col>
             )
         })

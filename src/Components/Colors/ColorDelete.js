@@ -9,42 +9,42 @@ import {
     Row
 } from 'reactstrap';
 
-const ColorDelete = (props) => {
+const ColorDelete = ({colorToUpdate, fetchColors, deleteOff, token}) => {
 
     const deleteColor = (color) => {
         fetch(`${APIURL}/api/color/${color.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.token
+                'Authorization': token
             })
         })
-            .then(() => props.fetchColors())
+            .then(() => fetchColors())
     }
 
 
     return (
-        <Modal isOpen={true} toggle={props.deleteOff} style={{ width: '25%' }}>
-            <ModalHeader toggle={props.deleteOff}>Delete Color</ModalHeader>
+        <Modal isOpen={true} toggle={deleteOff} style={{ width: '25%' }}>
+            <ModalHeader toggle={deleteOff}>Delete Color</ModalHeader>
             <ModalBody class="form-contents">
                 <h5 style={{ textAlign: "center", padding: '20px 0 5px 0', color: "rgb(160, 160, 160)" }}>Are you sure you want to delete this color?</h5>
                 <hr />
                 <Row style={{ textAlign: "center" }}>
                     <Col md="6">
-                        <h6>{props.colorToUpdate.name}</h6>
-                        <h6>{props.colorToUpdate.hex}</h6>
+                        <h6>{colorToUpdate.name}</h6>
+                        <h6>{colorToUpdate.hex}</h6>
                     </Col>
                     <Col md="6">
-                        <div class="color-box" style={{ backgroundColor: `${props.colorToUpdate.hex}` }}></div>
+                        <div class="color-box" style={{ backgroundColor: `${colorToUpdate.hex}` }}></div>
                     </Col>
                 </Row>
                 <hr />
                 <div class="actions">
                     <button class="button-delete"
                         onClick={() => {
-                            deleteColor(props.colorToUpdate)
-                            props.deleteOff();
-                            props.fetchColors();
+                            deleteColor(colorToUpdate)
+                            deleteOff();
+                            fetchColors();
                         }}>
                         Delete</button>
                 </div>

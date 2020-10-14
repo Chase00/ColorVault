@@ -33,7 +33,7 @@ const ValidationSchema = Yup.object().shape({
   });
 
 
-const Register = (props) => {
+const Register = ({updateToken}) => {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -68,7 +68,7 @@ const Register = (props) => {
                         }).then(
                             (response) => response.json()
                         ).then((data) => {
-                            props.updateToken(data.sessionToken)
+                            updateToken(data.sessionToken)
                         })
                     }}
                     

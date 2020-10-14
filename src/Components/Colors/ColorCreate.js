@@ -15,7 +15,7 @@ import {
   InputGroupAddon
 } from 'reactstrap';
 
-const ColorCreate = (props) => {
+const ColorCreate = ({fetchColors, createOff, token}) => {
   const [name, setName] = useState('');
   const [hex, setHex] = useState('#E4E4E4');
 
@@ -33,12 +33,12 @@ const ColorCreate = (props) => {
 
       headers: new Headers({
         'Content-Type': 'application/json',
-        'Authorization': props.token
+        'Authorization': token
       })
     }).then((res) => res.json())
       .then(() => {
-        props.createOff();
-        props.fetchColors();
+        createOff();
+        fetchColors();
         setName('');
         setHex('');
       })
@@ -81,8 +81,8 @@ const ColorCreate = (props) => {
   });
 
   return (
-    <Modal isOpen={true} toggle={props.createOff} style={{ width: '25%' }}>
-      <ModalHeader toggle={props.createOff}>Create a Color</ModalHeader>
+    <Modal isOpen={true} toggle={createOff} style={{ width: '25%' }}>
+      <ModalHeader toggle={createOff}>Create a Color</ModalHeader>
       <ModalBody class="form-contents">
         <Form onSubmit={handleSubmit}>
 

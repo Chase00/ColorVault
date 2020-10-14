@@ -15,14 +15,14 @@ import {
   InputGroupAddon 
 } from 'reactstrap';
 
-const WorkoutEdit = (props) => {
+const WorkoutEdit = ({colorToUpdate, editOff, token, fetchColors}) => {
 
-  const [editName, setEditName] = useState(props.colorToUpdate.name);
-  const [editHex, setEditHex] = useState(props.colorToUpdate.hex);
+  const [editName, setEditName] = useState(colorToUpdate.name);
+  const [editHex, setEditHex] = useState(colorToUpdate.hex);
 
   const colorUpdate = (event, color) => {
     event.preventDefault();
-    fetch(`${APIURL}/api/color/${props.colorToUpdate.id}`, {
+    fetch(`${APIURL}/api/color/${colorToUpdate.id}`, {
       method: 'PUT',
       body: JSON.stringify({
 
@@ -34,11 +34,11 @@ const WorkoutEdit = (props) => {
 
       headers: new Headers({
         'Content-Type': 'application/json',
-        'Authorization': props.token
+        'Authorization': token
       })
     }).then((res) => {
-      props.fetchColors();
-      props.editOff();
+      fetchColors();
+      editOff();
     })
   }
 
@@ -79,8 +79,8 @@ const WorkoutEdit = (props) => {
   });
 
   return (
-    <Modal isOpen={true} toggle={props.editOff} style={{ width: '25%' }}>
-      <ModalHeader toggle={props.editOff}>Edit Color</ModalHeader>
+    <Modal isOpen={true} toggle={editOff} style={{ width: '25%' }}>
+      <ModalHeader toggle={editOff}>Edit Color</ModalHeader>
       <ModalBody>
         <Form onSubmit={colorUpdate}>
 
