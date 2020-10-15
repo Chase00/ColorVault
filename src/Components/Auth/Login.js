@@ -56,12 +56,9 @@ const Login = ({updateToken}) => {
                             headers: new Headers({
                                 'Content-Type': 'application/json'
                             })
-                        }).then((response) => {
-                            response.json()
-                        }
-                        ).then((data) => {
-                            updateToken(data.sessionToken)
-                        }).catch(setIsValid(false))
+                        }).then((response) => response.json())
+                        .then((data) => updateToken(data.sessionToken))
+                        .catch(setIsValid(false))
                     }}
                     >
                         
