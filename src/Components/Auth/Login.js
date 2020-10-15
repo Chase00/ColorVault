@@ -61,7 +61,7 @@ const Login = ({updateToken}) => {
                         }
                         ).then((data) => {
                             updateToken(data.sessionToken)
-                        }).catch(err => setIsValid(false));
+                        }).catch(setIsValid(false))
                     }}
                     >
                         
