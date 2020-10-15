@@ -71,7 +71,7 @@ const ColorsIndex = ({token}) => {
 
     return (
 
-        <Container>
+        <Container fluid="md">
             <div class="actions">
                 <button class="button-main" onClick={createOn}>Create Color</button>
                 {isEmpty ? <NoColors /> : <></>}

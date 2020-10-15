@@ -1,6 +1,6 @@
 .color-area {
     width: 100%;
-    height: 200px;
+    height: 130px;
     border-radius: 10px 10px 0px 0px;
 }
 
@@ -8,6 +8,7 @@
     filter: drop-shadow(1px 1px 1px rgba(0,0,0,.5));
     color: white;
     float: right;
+    cursor: pointer;
 }
 
 .edit:hover {
@@ -19,6 +20,7 @@
     filter: drop-shadow(1px 1px 1px rgba(0,0,0,.5));
     color: white;
     float: right;
+    cursor: pointer;
 }
 
 .delete:hover {
@@ -32,9 +34,13 @@
     padding: 0 0 0 10px;
 }
 
-.copy:hover {
-    color: #83bd5c;
+.copy-area:hover {
     transition: 0.2s;
+    border-radius: 5px;
+    padding: 0px 2px 0px 2px;
+    border-radius: 5px;
+    background-color: #e9e9e9;
+    cursor: pointer;
 }
 
 div.card-body {
@@ -52,13 +58,13 @@ div.card-title {
 
 p.card-text {
     color: #363636;
-    letter-spacing: 3px;
-    font-size: 25px;
+    letter-spacing: 2px;
+    font-size: 18px;
     padding-bottom: 5%;
 }
 
 div.card {
-    margin: 10%;
+    margin: 5%;
     border: none;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 
 toast.configure();
-const ColorCard = ({color, name, hex, editUpdateColor, editOn, deleteOn}) => {
+const ColorCard = ({ color, name, hex, editUpdateColor, editOn, deleteOn }) => {
     const [copied, setCopied] = useState(false);
 
     return (
@@ -18,7 +18,7 @@ const ColorCard = ({color, name, hex, editUpdateColor, editOn, deleteOn}) => {
                 <div class="color-area" style={{ backgroundColor: hex }}>
 
                     <div class="delete">
-                        <MdDelete size={40}
+                        <MdDelete size={30}
                             onClick={() => {
                                 editUpdateColor(color)
                                 deleteOn();
@@ -27,7 +27,7 @@ const ColorCard = ({color, name, hex, editUpdateColor, editOn, deleteOn}) => {
                     </div>
 
                     <div class="edit">
-                        <MdModeEdit size={40}
+                        <MdModeEdit size={30}
                             onClick={() => {
                                 editUpdateColor(color);
                                 editOn()
@@ -38,25 +38,27 @@ const ColorCard = ({color, name, hex, editUpdateColor, editOn, deleteOn}) => {
                 </div>
                 <CardBody class="card-cont">
                     <CardTitle class="color-name">{name}</CardTitle>
-                    <CardText class="color-hex">{hex}
-                        <div class="copy">
-                            <CopyToClipboard text={hex} onCopy={() => {
-                                setCopied(true)
-                                toast.success(`✨ Copied ${hex} to clipboard`, {
-                                    color: "red",
-                                    position: "bottom-center",
-                                    autoClose: 3000,
-                                    hideProgressBar: false,
-                                    closeOnClick: true,
-                                    pauseOnHover: false,
-                                    draggable: true,
-                                    progress: undefined,
-                                });
-                            }}>
-                                <FiCopy />
-                            </CopyToClipboard>
+                    <CopyToClipboard text={hex} onCopy={() => {
+                        setCopied(true)
+                        toast.success(`✨ Copied ${hex} to clipboard`, {
+                            color: "red",
+                            position: "bottom-center",
+                            autoClose: 3000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: false,
+                            draggable: true,
+                            progress: undefined,
+                        });
+                    }}>
+                        <div class="copy-area">
+                            <CardText class="color-hex">{hex}
+                                <div class="copy">
+                                    <FiCopy />
+                                </div>
+                            </CardText>
                         </div>
-                    </CardText>
+                    </CopyToClipboard>
                 </CardBody>
             </CardBody>
         </Card>

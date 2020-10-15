@@ -11,7 +11,7 @@ const ColorsTable = ({colors, editUpdateColor, editOn, deleteOn, fetchColors}) =
     const colorsMapper = () => {
         return colors.map((color, index) => {
             return (
-                <Col sm="3" key={index}>
+                <Col fluid lg="2" md="4" xs="6" key={index}>
                     <ColorCard color={color} id={color.id} name={color.name} hex={color.hex} editUpdateColor={editUpdateColor} fetchColors={fetchColors} editOn={editOn} deleteOn={deleteOn} />
                 </Col>
             )
