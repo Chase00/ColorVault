@@ -22,7 +22,7 @@
 }
   
 .footer-icons:hover {
-    opacity: 30%;
+    /* opacity: 30%; */
     transition: 0.3s;
 }
 
